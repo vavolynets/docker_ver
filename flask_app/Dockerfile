@@ -1,4 +1,4 @@
-ARG Img=$Img
+ARG Img
 FROM ${Img}
 
 LABEL name="Flask Python Image based on Alpine" \
@@ -8,7 +8,7 @@ LABEL name="Flask Python Image based on Alpine" \
       build-date="20181001"
 
 # Build Environment
-ARG Docker_GID=$Docker_GID
+ARG Docker_GID
 ARG TIMEZONE="Europe/Kiev"
 ARG Web_User="www"
 ARG Web_Group="www"
