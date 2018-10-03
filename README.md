@@ -2,7 +2,7 @@
 
 This repository provides a simple python application in the Flask framework wrapped  to docker container which provides docker version output through http in json format.
 
-# Prerequisites.
+# Prerequisites
 
 Host with OS Linux
 
@@ -22,7 +22,7 @@ Files:
 * *build.sh* - batch Shell script which builds two images ['pybase:1.0','docker_ver:1.0'] by default and generates docker-compose.yml
 * *docker-compose.yml* - YAML file to start an application.
 
-# Buiold
+# Build
 
 * *./build.sh "<image>" "<tag>"* - image: ['pybase','docker_ver']  by default, tag: '1.0' by default.
 
