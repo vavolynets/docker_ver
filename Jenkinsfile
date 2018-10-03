@@ -1,5 +1,10 @@
 node {
 
+   def JF = 'docker-compose-jenkins.yml'
+   def img = 'lab'
+   def tag = "${env.BUILD_ID}"
+   def Docker_GID
+
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
 
@@ -7,24 +12,24 @@ node {
     }
 
     stage('Build image') {
-      agent {
-    // Equivalent to "docker build -f Dockerfile.build --build-arg version=1.0.2 ./build/
-    dockerfile {
-        filename 'Dockerfile'
-        dir 'pybase'
-        label 'pybase:jnk'
-    }
-}
+                sh """
+                   export Docker_GID=`awk 'BEGIN {cmd="getent group docker"
+                                            cmd | getline cmd_out
+                                            split(cmd_out,gid,":")
+                                            print gid[3]}'`
+                   export img="$img"
+                   export tag="$tag"
+                   docker-compose -f "${env.WORKSPACE}/${JF}" build
+                   """
+
+      }
+    stage('Run image') {
+                sh """
+                   export img="$img"
+                   export tag="$tag"
+                   docker-compose -f "${env.WORKSPACE}/${JF}" up -d dockver
+                   """
+
+      }
 
     }
-/*
-    stage('Test image') {
-        /* Ideally, we would run a test framework against our image.
-         * For this example, we're using a Volkswagen-type approach ;-) */
-
-        app.inside {
-            sh 'python version'
-        }
-    }
-*/
-}
