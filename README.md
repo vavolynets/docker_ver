@@ -24,7 +24,7 @@ Files:
 
 # Build
 
-* *./build.sh "<image>" "<tag>"* - image: ['pybase','docker_ver']  by default, tag: '1.0' by default.
+* *./build.sh "\<image\>" "\<tag\>"* - image: ['pybase','docker_ver']  by default, tag: '1.0' by default.
 
 # Run
 To start application please run 
