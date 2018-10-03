@@ -41,5 +41,5 @@ docker-compose up -d
 # External resources
 
 * [Docker](https://www.docker.com)
-* [iCompose tool](https://docs.docker.com/compose/)
+* [Compose tool](https://docs.docker.com/compose/)
 * [GitHub docker-compose](https://github.com/docker/compose)
