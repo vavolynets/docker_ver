@@ -22,4 +22,4 @@ node {
             sh 'python version'
         }
     }
-
+}
