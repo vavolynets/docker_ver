@@ -3,12 +3,12 @@ services:
   pybase:
     build:
       context: ./pybase
-    image: ${img}/pybase
+    image: "${img}/pybase"
   dockver:
     build:
       context: ./flask_app
       args:
-        Img: ${img}/pybase 
+        Img: "${img}/pybase" 
         Docker_GID: ${Docker_GID}
     image: ${img}_dockver:${tag}
     volumes:
